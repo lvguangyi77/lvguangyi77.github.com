@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社--http://www.zhinengshe.com</title>
+    <style>
+        @keyframes move {
+            from {
+                left: 0;
+            }
+            to {
+                left: -100%;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 1000px;
+            height: 500px;
+            border: 1px solid #000;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #bar {
+            width: 200%;
+            height: 100%;
+            background: -webkit-repeating-linear-gradient(45deg, red 0, pink 10px, blue 10px, blue 20px);
+            position: absolute;
+            left: 0;
+            top: 0;
+            animation: 10s move linear infinite;
+        }
+
+        #box:hover #bar {
+            left: -100%;
+        }
+
+        h2 {
+            width: 500px;
+            height: 100px;
+            font-size: 100px;
+            margin: 0px auto;
+        }
+
+        #col {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+        var oInp = document.querySelectorAll('.col');
+        var oBar = document.querySelector('#bar');
+        for (var i = 0; i < oInp.length; i++) {
+            oInp[i].onchange = function () {
+                oBar.style.background = '-webkit-repeating-linear-gradient(45deg, ' + oInp[0].value + ' 0, ' + oInp[1].value + ' 10px, ' + oInp[0].value + ' 10px, ' + oInp[1].value + ' 20px)';
+            }
+        }
+    }
+</script>
+<body>
+<input type="color" class="col"/>
+<input type="color" class="col"/>
+
+<h2>牛逼闪闪</h2>
+
+<div id="box">
+    <div id="bar"></div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
